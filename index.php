@@ -14,14 +14,14 @@
 <body class="<?php echo implode(' ', get_body_class()); ?>">
 
 	<h1>
-		<?php _e( 'Content Theme', 'content-theme' ); ?>
+		<?php _e( 'WordPress Content Theme', 'content-theme' ); ?><br>
 	</h1>
 	<p>
-		<?php _e( 'Please refer to the WordPress Admin for content development.', 'content-theme' ); ?>
+		<?php _e( 'A custom content development theme for WordPress.', 'content-theme' ); ?>
 	</p>
 	<p>
 		<a href="<?php echo admin_url(); ?>">
-			<?php _e( 'WordPress Admin', 'content-theme' ); ?>
+			<?php _e( 'Go to the WordPress Admin', 'content-theme' ); ?>
 		</a>
 	</p>
 

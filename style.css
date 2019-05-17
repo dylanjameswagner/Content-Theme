@@ -1,7 +1,7 @@
 /**
  * Theme Name:  Content Theme
  * Theme URI:   https://github.com/dylanjameswagner/Content-Theme
- * Description: A custom theme for WordPress.
+ * Description: A custom content development theme for WordPress.
  * Version:     1.0.0
  * Author:      Dylan James Wagner
  * Author URI:  https://dylanjameswagner.com/
@@ -10,3 +10,9 @@
  * A WordPress theme is required to have this file.
  * https://developer.wordpress.org/themes/release/required-theme-files/
  */
+
+body {
+	background-color: #fafafa;
+	text-align: center;
+	font-family: sans-serif;
+}

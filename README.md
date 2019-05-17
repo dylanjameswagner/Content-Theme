@@ -9,4 +9,5 @@ Logged-in-only
 - https://github.com/reimersjan/wp-logged-in-only
 
 ## To-Do
-- Add front-end notice, with link to admin dashboard.
+- Add styles to index
+- Add project branding
