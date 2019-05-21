@@ -1,33 +1,73 @@
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
+<?php get_header(); ?>
 
-	<meta charset="<?php echo get_bloginfo( 'charset' ); ?>">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<section class="content">
+	<main role="main" class="primary">
 
-	<!-- bof wp_head -->
-	<?php wp_head(); ?>
-	<!-- eof wp_head -->
+		<?php /** /// No content ?>
 
-</head>
-<body class="<?php echo implode(' ', get_body_class()); ?>">
+		<?php $plural = get_post_type_object(get_post_type())->label; ?>
 
-	<h1>
-		<?php _e( 'WordPress Content Theme', 'content-theme' ); ?><br>
-	</h1>
-	<p>
-		<?php _e( 'A custom content development theme for WordPress.', 'content-theme' ); ?>
-	</p>
-	<p>
-		<a href="<?php echo admin_url(); ?>">
-			<?php _e( 'Go to the WordPress Admin', 'content-theme' ); ?>
-		</a>
-	</p>
+		<article role="article" class="article">
+			<header class="article__header">
+				<h1 class="article__heading">
+					<?php
+						if (is_author()) : echo sprintf('Archive of %s by Author', $plural);
+					elseif (is_year())   : echo sprintf('Archive of %s by Year', $plural);
+					elseif (is_month())  : echo sprintf('Archive of %s by Month', $plural);
+					elseif (is_day())    : echo sprintf('Archive of %s by Day', $plural);
+					else :
+						echo $plural;
+					endif;
+					?>
+				</h1>
+			</header>
 
-	<!-- bof wp_footer -->
-	<?php wp_footer(); ?>
-	<!-- eof wp_footer -->
+			<?php if (have_posts()) : ?>
 
-</body>
-</html>
+				<section class="article__articles">
+
+					<?php while (have_posts()) : the_post(); ?>
+
+						<article class="article">
+							<header class="article__header">
+								<h1 class="article__heading">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_title(); ?>
+									</a>
+								</h1>
+							</header>
+
+							<section class="article__excerpt">
+								<?php the_excerpt(); ?>
+							</section>
+
+							<?php edit_post_link(__('Edit', 'basic-theme'), '<p class="article__edit">', '</p>'); ?>
+						</article>
+
+					<?php endwhile; ?>
+
+				</section>
+
+				<?php the_posts_pagination(); ?>
+
+			<?php else : ?>
+
+				<section class="article__content">
+					<p>
+						<?php _e('No Posts', 'basic-theme'); ?>
+					</p>
+				</section>
+
+			<?php endif; ?>
+
+		</article>
+
+		<?php /**/// No content ?>
+
+	</main>
+
+	<?php // get_sidebar(); ?>
+
+</section>
+
+<?php get_footer(); ?>
