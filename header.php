@@ -15,7 +15,7 @@
 
 	<section role="banner" class="header">
 		<h1>
-			<?php _e( 'Hilldrup 2019 Content Theme', 'content-theme' ); ?><br>
+			<?php _e( 'Content Theme', 'content-theme' ); ?><br>
 		</h1>
 		<p>
 			<?php _e( 'A custom content development theme for WordPress.', 'content-theme' ); ?>
